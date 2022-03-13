@@ -54,7 +54,7 @@ async function loadImage(onProgress) {
 	let image = tf.browser.fromPixels(pixels, 3);
 	image = tf.image.resizeBilinear(image.expandDims().toFloat(), [input_size, input_size]);
 	if (is_new_od_model) {
-		console.log( "Object Detection Model V2 detected." );
+		console.log( "Object Detection" );
 		image = is_new_od_model ? image : image.reverse(-1); // RGB->BGR for old models
 	}
 
@@ -73,7 +73,7 @@ async function predictLogos(inputs) {
 	// Post processing for old models.
 	if (predictions.length != 3) {
 		console.log( "Post processing..." );
-		await $('.progress-bar').html("Post-processing V1 model").promise();
+		await $('.progress-bar').html("Processing").promise();
 	    const num_anchor = ANCHORS.length / 2;
 		const channels = predictions[0][0][0].length;
 		const height = predictions[0].length;
