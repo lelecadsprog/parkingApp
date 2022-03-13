@@ -1,7 +1,5 @@
 # Setup
-> npm install
-Run the local web server script: 
-> node server.js
+npm install >> node server.js
 
 # Demo
 
